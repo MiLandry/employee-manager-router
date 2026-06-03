@@ -1,0 +1,10 @@
+{
+  "name": "employee-manager-router",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "compose": "bun scripts/compose.ts",
+    "dev": "docker compose up",
+    "dev:detach": "docker compose up -d"
+  }
+}

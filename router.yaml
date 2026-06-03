@@ -1,0 +1,27 @@
+supergraph:
+  listen: 0.0.0.0:4000
+  path: /graphql
+
+health_check:
+  listen: 0.0.0.0:8088
+
+cors:
+  origins:
+    - http://localhost:5173
+    - http://127.0.0.1:5173
+  allow_headers:
+    - Content-Type
+    - Accept
+    - x-mock-user-id
+    - x-mock-roles
+    - x-mock-tenant-id
+
+headers:
+  all:
+    request:
+      - propagate:
+          named: x-mock-user-id
+      - propagate:
+          named: x-mock-roles
+      - propagate:
+          named: x-mock-tenant-id

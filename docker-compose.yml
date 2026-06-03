@@ -1,0 +1,16 @@
+services:
+  router:
+    image: ghcr.io/apollographql/router:v1.49.0
+    ports:
+      - "4000:4000"
+      - "8088:8088"
+    volumes:
+      - ./router.yaml:/dist/config/router.yaml:ro
+      - ./supergraph.graphql:/dist/schema/supergraph.graphql:ro
+    command:
+      - --config
+      - /dist/config/router.yaml
+      - --supergraph
+      - /dist/schema/supergraph.graphql
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

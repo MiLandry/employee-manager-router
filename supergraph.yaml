@@ -1,0 +1,10 @@
+federation_version: =2.3.2
+subgraphs:
+  employees:
+    routing_url: http://host.docker.internal:3000/graphql
+    schema:
+      file: ./subgraphs/employees.graphql
+  payroll:
+    routing_url: http://host.docker.internal:3001/graphql
+    schema:
+      file: ./subgraphs/payroll.graphql
